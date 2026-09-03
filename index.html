@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkanoid</title>
     <style>
+         /* стили для страницы */
         html, body {
             margin: 0;
             padding: 0;
@@ -12,16 +13,21 @@
             height: 100%;
             overflow: hidden;
         }
+        /* для фона */
         body {
-            background-color: #1c1733;
+            background-color: #151125;
+            background-image: url('background.png');
+            background-repeat: repeat;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+        
     </style>
 </head>
 <body>
-    <canvas id="gameArkan" width="800" height="600"></canvas>
+    <!-- рисуем поле -->
+    <canvas id="gameArkan" width="920" height="600"></canvas>
     <script src="Arkanoid.js"></script>
 </body>
 </html>
