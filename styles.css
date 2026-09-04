@@ -1,0 +1,79 @@
+html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        /* для фона */
+        body {
+            background-color: #151125;
+            background-image: url('background.png');
+            background-repeat: repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .game-over {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-over h1 {
+            font-size: 60px;
+            margin: 0 0 20px 0;
+            color: rgb(124, 1, 1);
+
+        }
+
+        .game-over h2 {
+            margin: 0 0 30px 0;
+            color: white;
+        }
+
+        .game-over button {
+            padding: 20px 40px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #000000;
+            color: white;
+        }
+
+        .game-win {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .game-win h1 {
+            font-size: 70px;
+            margin: 0 0 20px 0;
+            color: rgb(135, 1, 1);
+        }
+        .game-win h2 {
+            margin: 0 0 30px 0;
+            color: white;
+        }
+        .game-win button {
+            padding: 20px 40px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #000000;
+            color: white;
+        }
+        .game-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        #gameInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            color: rgb(246, 247, 247);
+            font-size: 20px;
+        }
