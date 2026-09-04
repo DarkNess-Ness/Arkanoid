@@ -4,30 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkanoid</title>
-    <style>
-         /* стили для страницы */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        /* для фона */
-        body {
-            background-color: #151125;
-            background-image: url('background.png');
-            background-repeat: repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="game-container">
     <!-- рисуем поле -->
     <canvas id="gameArkan" width="920" height="600"></canvas>
+    <div id="gameInfo">
+        <div>Score: <span id="score">0</span></div>
+        <div>Lives: <span id="lives">3</span></div>
+    </div>
+    </div>
     <script src="Arkanoid.js"></script>
 </body>
 </html>
