@@ -1,4 +1,6 @@
 const canvas = document.getElementById('gameArkan');
+const scoreElement = document.getElementById('score');
+const livesElement = document.getElementById('lives');
 const ctx = canvas.getContext('2d');
 
 //задаем блоки и цвета для уровня
@@ -69,6 +71,8 @@ for (let row = 0; row < level1.length; row++) {
         });
     }
 }
+let score = 0;
+let lives = 3;
 //функция для проверки столкновения объектов
 // взяли отсюда: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 function collides(obj1, obj2) {
@@ -96,6 +100,8 @@ document.addEventListener('keyup', (e) => {
         platform.dx = 0;
     }
 });
+
+
 
 function loop() {
     //очищаем поле и рисуем заново
@@ -136,6 +142,11 @@ function loop() {
         ball.y = platform.y - ball.height;
         ball.dx = 0;
         ball.dy = 0;
+        lives--;
+        livesElement.textContent = lives;
+        if (lives === 0) {
+            window.location.href = "game-over.html";           
+        }
     }
 
     // проверяем столкновение мяча с платформой
@@ -158,6 +169,11 @@ function loop() {
             if (collides(ball, brick)) {
                 // удаляем блок из массива
                 bricks.splice(i, 1);
+                score += 10;
+                scoreElement.textContent = score;
+                if (bricks.length === 0) {
+                    // все блоки уничтожены
+                    window.location.href = "game-win.html";}
                 // меняем направление мяча в зависимости от того, с какой стороны он столкнулся с блоком
                 if (ball.y + ball.height - ball.speed <= brick.y || ball.y >= brick.y + brick.height - ball.speed) {
                     ball.dy *= -1;
@@ -175,7 +191,12 @@ function loop() {
         ctx.fillRect(canvas.width - wallSize, 0, wallSize, canvas.height); // правая стенка     
         
         // рисуем мяч
-        ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+        //ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+        ctx.beginPath();
+        ctx.arc(ball.x + ball.width / 2, ball.y + ball.height / 2, ball.width / 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+        ctx.closePath();
 
         
         // рисуем блоки
