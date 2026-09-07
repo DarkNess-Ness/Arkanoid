@@ -145,6 +145,7 @@ function loop() {
         lives--;
         livesElement.textContent = lives;
         if (lives === 0) {
+            localStorage.setItem('score', score);
             window.location.href = "game-over.html";           
         }
     }
@@ -173,6 +174,7 @@ function loop() {
                 scoreElement.textContent = score;
                 if (bricks.length === 0) {
                     // все блоки уничтожены
+                    localStorage.setItem('score', score);
                     window.location.href = "game-win.html";}
                 // меняем направление мяча в зависимости от того, с какой стороны он столкнулся с блоком
                 if (ball.y + ball.height - ball.speed <= brick.y || ball.y >= brick.y + brick.height - ball.speed) {
